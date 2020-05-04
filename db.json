@@ -1,0 +1,19 @@
+{
+  "logs": [
+    {
+      "id": "1",
+      "severityLevel": "info",
+      "message": "something happened"
+    },
+    {
+      "id": "2",
+      "severityLevel": "warn",
+      "message": "you might want to check that"
+    },
+    {
+      "id": "3",
+      "severityLevel": "error",
+      "message": "something went wrong"
+    }
+  ]
+}
