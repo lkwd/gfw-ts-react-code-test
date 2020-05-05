@@ -1,10 +1,16 @@
 import React from "react";
-import { render } from "./testUtils";
+import { render, waitForElement } from "./testUtils";
 import { App } from "./App";
 
-test("tells candidates how to get started", () => {
-  const { getByText } = render(<App />);
+test("renders the logs", async () => {
+  const { getByTestId } = render(<App />);
+  await waitForElement(() => getByTestId("log-1"));
+  await waitForElement(() => getByTestId("log-2"));
+  await waitForElement(() => getByTestId("log-3"));
 
-  const directions = getByText(/save to reload/i);
-  expect(directions).toBeInTheDocument();
+  expect(getByTestId("log-1")).toHaveTextContent("something happened");
+  expect(getByTestId("log-2")).toHaveTextContent(
+    "you might want to check that"
+  );
+  expect(getByTestId("log-3")).toHaveTextContent("something went wrong");
 });
